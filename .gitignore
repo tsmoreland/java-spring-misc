@@ -25,6 +25,8 @@ hs_err_pid*
 # Intellij
 .idea
 
+target/
+
 # Visual Studio (Code)
 .vs
 .vscode
