@@ -9,21 +9,27 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.tsmoreland.spring.jdbcdemo</groupId>
-    <artifactId>application</artifactId>
+    <groupId>com.tsmoreland.spring.jdbcdemo.infrastructure</groupId>
+    <artifactId>persistence</artifactId>
 
     <dependencies>
-        <!--suppress VulnerableLibrariesLocal -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
         <!--suppress VulnerableLibrariesLocal -->
         <dependency>
             <groupId>com.tsmoreland.spring.jdbcdemo</groupId>
+            <artifactId>application</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.tsmoreland.spring.jdbcdemo</groupId>
             <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--suppress VulnerableLibrariesLocal -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -32,5 +38,4 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
 </project>

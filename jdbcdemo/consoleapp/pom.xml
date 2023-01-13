@@ -13,6 +13,7 @@
     <artifactId>consoleapp</artifactId>
 
     <dependencies>
+        <!--suppress VulnerableLibrariesLocal -->
         <dependency>
             <groupId>com.tsmoreland.spring.jdbcdemo</groupId>
             <artifactId>application</artifactId>
