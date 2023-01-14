@@ -9,11 +9,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.tsmoreland.spring.jdbcdemo.infrastructure</groupId>
+    <groupId>com.tsmoreland.spring.jdbcdemo</groupId>
     <artifactId>persistence</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
-
         <!--suppress VulnerableLibrariesLocal -->
         <dependency>
             <groupId>com.tsmoreland.spring.jdbcdemo</groupId>
@@ -27,6 +27,12 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!--suppress VulnerableLibrariesLocal -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,9 +40,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
     </dependencies>
 </project>
