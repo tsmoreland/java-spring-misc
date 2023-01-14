@@ -1,4 +1,4 @@
-package com.tsmoreland.spring.jdbcdemo.contracts.persistence;
+package com.tsmoreland.spring.jdbcdemo.application.contracts.persistence;
 
 import com.tsmoreland.spring.jdbcdemo.domain.common.Page;
 import com.tsmoreland.spring.jdbcdemo.domain.entities.Order;
