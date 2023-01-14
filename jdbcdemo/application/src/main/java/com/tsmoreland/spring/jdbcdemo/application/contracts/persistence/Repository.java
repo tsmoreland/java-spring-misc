@@ -7,10 +7,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface Repository<T> {
-    Optional<T> GetById(UUID id);
-    List<T> GetAll();
-    Page<T> GetPage(int pageNumber, int pageSize);
-    T Add(T entity);
-    void Update(T entity);
-    void Delete(T entity);
+    Optional<T> getById(UUID id);
+    List<T> getAll();
+    Page<T> getPage(int pageNumber, int pageSize);
+    T add(T entity);
+    void update(T entity);
+    void delete(T entity);
 }

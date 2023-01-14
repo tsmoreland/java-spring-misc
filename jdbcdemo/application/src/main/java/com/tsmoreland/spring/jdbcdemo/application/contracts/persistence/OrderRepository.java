@@ -6,7 +6,7 @@ import com.tsmoreland.spring.jdbcdemo.domain.entities.Order;
 import java.time.Instant;
 
 public interface OrderRepository extends Repository<Order> {
-    Page<Order> GetPagedOrdersForMonth(Instant date, int pageNumber, int pageSize);
-    int GetTotalCountOfOrdersForMonth(Instant date);
+    Page<Order> getPagedOrdersForMonth(Instant date, int pageNumber, int pageSize);
+    int getTotalCountOfOrdersForMonth(Instant date);
 
 }
