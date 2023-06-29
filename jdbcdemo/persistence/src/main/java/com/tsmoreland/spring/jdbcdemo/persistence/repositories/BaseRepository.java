@@ -42,7 +42,8 @@ public abstract class BaseRepository<T> implements Repository<T> {
 
     @Override
     public Page<T> getPage(int pageNumber, int pageSize) {
-        List<T> items = jdbcTemplate.query(sqlProvider.getPage(), rowMapper, pageNumber, pageSize);
+        List<T> items = jdbcTemplate.query(sqlProvider.getPage(), rowMapper,
+            (pageNumber - 1) * pageSize, pageSize);
 
         Long totalCountValue = jdbcTemplate
             .queryForObject(sqlProvider.getTotalCount(),
@@ -65,7 +66,7 @@ public abstract class BaseRepository<T> implements Repository<T> {
     @Override
     public void update(T entity) {
         var keyholder = new GeneratedKeyHolder();
-        jdbcTemplate.update(conn -> sqlProvider.prepareAddStatement(conn, entity), keyholder);
+        jdbcTemplate.update(conn -> sqlProvider.prepareUpdateStatement(conn, entity), keyholder);
     }
 
     @Override
