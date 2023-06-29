@@ -4,14 +4,12 @@ import com.tsmoreland.spring.jdbcdemo.domain.entities.Event;
 import com.tsmoreland.spring.jdbcdemo.persistence.repositories.SqlProvider;
 import org.springframework.stereotype.Component;
 
-import javax.swing.text.html.parser.Entity;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.HashMap;
 
 @Component
 public class EventsSqlProvider implements SqlProvider<Event> {
@@ -72,38 +70,23 @@ public class EventsSqlProvider implements SqlProvider<Event> {
             artist = ?,
             image_url = ?,
             category_id = ?,
+            description = ?,
             last_modified_by = ?,
             last_modified_date = ?
-            where id = :id
+            where id = ?
             """);
         preparedStatement.setString(1,  entity.getName());
         preparedStatement.setInt(2,  entity.getPrice());
         preparedStatement.setString(3,  entity.getArtist());
         preparedStatement.setString(4,  entity.getImageUrl());
         preparedStatement.setString(5,  entity.getCategoryId().toString());
-        preparedStatement.setDate(5,  Date.valueOf(LocalDate.ofInstant(entity.getDate(), utcZone)));
         preparedStatement.setString(6,  entity.getDescription());
         preparedStatement.setString(7,  entity.getLastModifiedBy());
         preparedStatement.setDate(8,  Date.valueOf(LocalDate.ofInstant(entity.getLastModifiedDate(), utcZone)));
+        preparedStatement.setString(9,  entity.getEventId().toString());
         return preparedStatement;
     }
 
-    private HashMap<String, Object> CreateParameterMap(Event entity) {
-        var parameterMap = new HashMap<String, Object>();
-        parameterMap.put("id", entity.getEventId());
-        parameterMap.put("name", entity.getName());
-        parameterMap.put("price", entity.getPrice());
-        parameterMap.put("artist", entity.getArtist());
-        parameterMap.put("date", Date.valueOf(LocalDate.ofInstant(entity.getDate(), utcZone)));
-        parameterMap.put("description", entity.getDescription());
-        parameterMap.put("image_url", entity.getImageUrl());
-        parameterMap.put("category_id", entity.getCategoryId().toString());
-        parameterMap.put("created_by", entity.getCreatedBy().toString());
-        parameterMap.put("created_date", Date.valueOf(LocalDate.ofInstant(entity.getCreatedDate(), utcZone)));
-        parameterMap.put("last_modifed_by", entity.getLastModifiedBy().toString());
-        parameterMap.put("last_modified_date", Date.valueOf(LocalDate.ofInstant(entity.getLastModifiedDate(), utcZone)));
-        return parameterMap;
-    }
     @Override
     public String delete() {
         return null;
